@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confess 5 Slide</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 400px;
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .slide {
+        display: none;
+        animation: fade 0.6s ease;
+    }
+
+    .slide.active {
+        display: block;
+    }
+
+    h2 {
+        color: #ff4d6d;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 16px;
+        color: #333;
+    }
+
+    button {
+        margin-top: 25px;
+        padding: 10px 25px;
+        border: none;
+        border-radius: 25px;
+        background: #ff4d6d;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ff1e4d;
+    }
+
+    @keyframes fade {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="slide active">
+        <h2>Hai Kamu 👋</h2>
+        <p>Aku cuma mau bilang sesuatu…</p>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <div class="slide">
+        <h2>boleh ga kita balikan</h2>
+        <p>Setiap hari aku selalu kepikiran kamu.</p>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <div class="slide">
+        <h2>Entah Kenapa 😊</h2>
+        <p>Senyum kamu itu bikin hari aku lebih baik.</p>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <div class="slide">
+        <h2>Aku Ngerasa 💭</h2>
+        <p>Perasaan ini bukan cuma rasa biasa.</p>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <div class="slide">
+        <h2>Jadi… ❤️</h2>
+        <p>Aku suka kamu. Mau nggak kenal lebih dekat sama aku?</p>
+        <button onclick="alert('Semoga jawabannya iya 😳❤️')">Finish</button>
+    </div>
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide++;
+        if (currentSlide < slides.length) {
+            slides[currentSlide].classList.add('active');
+        }
+    }
+</script>
+
+</body>
+</html>
